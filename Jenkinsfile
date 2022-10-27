@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    stages{
+    stages {
         stage('Cloning Repo') {
             steps {
                 git 'https://github.com/atiemwenjoseph1/multi-pipeline.git'
@@ -27,7 +27,7 @@ pipeline {
                 input message: 'Do you want to Destroy Terraform Resources?'
             }
         }
-        stage('Time the kill?') {
+        stage('Destoyed and Checking statefile') {
             steps {
                 sh 'terraform destroy --auto-approve'
                 sh 'cat terraform.tfstate'
